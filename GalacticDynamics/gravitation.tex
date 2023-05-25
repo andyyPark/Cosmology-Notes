@@ -1,0 +1,22 @@
+How does mass give rise to forces that lead to the motion of planets, stars, gas, and dark matter in the Universe? A theory for the motion of objects under the influence of gravity requires two ingredients: how mass gives rise to a gravitational force and how objects move under the influence of this force. A modern understanding of the law of universal gravitation emphasizes that force is derived from a scalar-valued gravitational potential $\Phi(\bm{x})$ through:
+\begin{equation}
+    \bm{F}(\bm{x}) = -m \nabla\Phi(\bm{x}),
+\end{equation}
+and replaces Newton's inverse-square law with the Poisson equation:
+\begin{equation}
+    \nabla^2\Phi(\bm{x}) = 4\pi G\rho(\bm{x}).
+\end{equation}
+
+The reason that the Poisson equation is more properly considered to be the fundamental equation between mass and gravitational force is that it is the direct Newtonian limit of Einstein's field equation. Einstein's field equation reduces to the Poisson equation in the limit that velocities $v$ and the gravitational potential are small compared to the speed of light $c$, so the limit is $|\Phi|/c^2 \ll 1$ and $v/c \ll 1$.
+
+For spherical mass distributions, Newton proved two fundamental theorems that significantly simplify all work with spherical mass distributions. These are:
+
+\noindent \textbf{Newton's first shell theorem:} A body that is inside a spherical shell of matter experiences no net gravitational force from that shell.
+
+\noindent \textbf{Newton's second shell theorem:} The gravitational force on a body that lies outside a spherical shell of matter is the same as it would be if all of the shell's matter were concentrated into a point at its center.
+
+\begin{equation}
+    \int_V dV \nabla^2 \Phi = 4 \pi G \int_V dV \rho = 4\pi G M = \int_S dS (\bm{\hat{n}} \cdot \nabla \Phi) = -\int_S dS (\bm{\hat{n}} \cdot \bm{g}).
+\end{equation}
+
+To prove Newton's first shell theorem, consider a spherical shell $S_a$ centered on the origin with radius $a$ and integrate the gravitational field over a similar spherical shell $S_b$ with radius $b < a$.

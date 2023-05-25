@@ -1,0 +1,17 @@
+\subsection{Tophat}
+
+Define the real-space tophat function as
+\begin{equation}
+    W(\bm{x}; R) = 
+    \begin{cases}
+        \frac{3}{4 \pi R^3} & |\bm{x}| < R \\
+        0 & \text{otherwise},
+    \end{cases}
+\end{equation}
+then the Fourier transform of this is
+\begin{align}
+    \hat{W}(k;R) &= \int W(\bm{x};R) e^{-i \bm{k} \cdot \bm{x}} d^3 \bm{x} \\
+    &= \frac{3}{2R^3} \int_0^R \int_0^\pi e^{-i |\bm{k}| |\bm{x}| \cos\theta} r^2 \sin\theta d\theta dr \\
+    &= \frac{3}{R^3} \int_0^R \frac{\sin(kr)}{kr} r^2 dr \\
+    &= \frac{3}{(kR)^3} (\sin(k R) - k R \cos(k R))
+\end{align}

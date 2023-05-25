@@ -1,0 +1,54 @@
+\subsection{Selecting the Ingredients}
+When using the halo model, it is necessary to make choices for the bias, halo mass function, and halo profiles. It is common to calibrate these ingredients via $N$-body simulations.
+
+When defining haloes in simulations, it is necessary to make a boundary choice, which must be consistent when using collections of simulation-calibrated ingredients within a halo model. The fundamental choice is identifying a halo from the $N$-body simulations. The two common algorithms are friends of friends (FoF) and spherical overdensity (SO). 
+
+The FoF scheme is simpler, with the only user-specified parameter being the `linking length', which defines the maximum distance between two particles that are considered to be part of the same halo. All particles within the linking length of at least one other particle in the halo are jointed to that halo. Typically the linking length of $b = 0.2$ times the mean-inter-particle separation is used. 
+
+SO algorithms first choose halo centers (usually from minima in the gravitational potential, but sometimes in the density) and then grow spheres out from these peaks until a fixed overdensity threshold has been reached. With SO there are several choices to be made: the overdensity threshold (200$\Bar{\rho}$ is common) but also exactly how to define the halo centers and how to count haloes as distinct entities. SO is more common because it relates  more closely to how halo formations are thought to occur and to how haloes are identified in data sets. 
+
+There is no single `correct' halo definition, and the best choice will depend on the observable that one is attempting to model. 
+
+The variance in the linear matter overdensity field when smoothed on comoving scale $R$ is 
+\begin{equation}
+    \sigma^2(R) = \int_0^\infty 4\pi \left(\frac{k}{2\pi}\right)^3 P^{lin}(k) T^2(kR) d \ln k,
+\end{equation}
+where $T(kR)$ is the filter window function; the Fourier transform of the real-space top hat is
+\begin{equation}
+    T(x) = \frac{3}{x} (\sin x - x \cos x).
+\end{equation}
+The Lagrangian comoving scale, $R$, is the comoving radius of a sphere in a homogeneous Universe which contains a given mass of $M$,
+\begin{equation}
+    M = \frac{4}{3}\pi R^3 \Bar{\rho},
+\end{equation}
+thus we can relate $\sigma(R)$ in terms of mass.
+
+The `peak height' 
+\begin{equation}
+    \nu(M) = \delta_c / \sigma(M),
+\end{equation}
+is a useful quantity that increases monotonically with the halo mass. $\delta_c(z) \simeq 1.686$ is the critical linear overdensity needed for haloes to collapse under the spherical-collapse model at redshift $z$.
+
+The halo mass function is usually parameterized in terms of either $\sigma$ or $\nu$, rather than $M$ directly because it has been shown that the halo mass function exhibits close-to-universal behavior as a function of cosmology and redshift in terms of these variables. Analytical approaches for calculating the halo mass function rely on either peaks theory or excursion sets. 
+
+We can write the halo mass function in terms of the peak height, by defining
+\begin{equation}
+    f(\nu) d\nu = \frac{M}{\Bar{\rho}} n(M) dM.
+\end{equation}
+If all mass is to be contained in haloes, then $f(\nu)$ integrated over all $\nu \in [0, \infty]$ should equal unity, which derives from mass conservation. A common form of $f(\nu)$ to be found in the literature is that of Sheth \& Tormen \cite{Sheth_1999}:
+\begin{equation}
+    f(\nu) = A[1 + (q \nu^2)^{-p}] e^{- q\nu^2/2},
+\end{equation}
+where $p, q$, and $A$ are fitted to simulated data. 
+
+By far the most common form taken for the density profile is NFW
+\begin{equation}
+    \rho(r) = \frac{\rho_s}{r/r_s(1+r/r_s)^2},
+\end{equation}
+where $\rho_s$ and $r_s$ are the scale radius and density, both of which depend on the halo mass. The profile is truncated at the halo radius $r_h$ and if this truncation is not imposed then it should be noted that the total mass of the profile is infinite. The halo radius is calculated via
+\begin{equation}
+    M = \frac{4}{3}\pi r_h^3 \Delta_h \Bar{\rho},
+\end{equation}
+where $\Delta_h$ is the halo overdensity with respect to the background matter density.
+
+The scale radius $r_s$ is usually related to $r_h$ via a concentration-mass relation: $c = r_h / r_s$.

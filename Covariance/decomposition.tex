@@ -1,0 +1,11 @@
+\subsection{Covariance Decomposition}
+
+In lensing covariance work, it has become customary to decompose the total covariance matrix of the estimator into three terms:
+
+\begin{align}
+    \label{eq:cov}
+    \operatorname{Cov}_\kappa^{ijmn}(\ell_1, \ell_2) &= \left\langle\hat{C}_\kappa^{ij}(\ell_1) \hat{C}_\kappa^{mn}(\ell_2)\right\rangle - \left\langle\hat{C}_\kappa^{ij}(\ell_1)\right\rangle\left\langle\hat{C}_\kappa^{mn}(\ell_2)\right\rangle \\
+    \nonumber &= \operatorname{Cov}_{\kappa_G}^{ijmn}(\ell_1, \ell_2) + \operatorname{Cov}_{\kappa_{cNG}}^{ijmn}(\ell_1, \ell_2) + \operatorname{Cov}_{\kappa_{SSC}}^{ijmn}(\ell_1, \ell_2).
+\end{align}
+
+The Gaussian covariance is computed using the `improved narrow kernel approximation' method. The Gaussian covariance component of a general statistically isotropic field on the sphere is equivalent to the total covariance of a Gaussian field with the same power spectrum. 
