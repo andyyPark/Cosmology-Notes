@@ -1,0 +1,153 @@
+\subsection{Weak Gravitational Lensing}
+
+Now we apply the result from CMB polarization directly to weak gravitational lensing. The shear distortion matrix is defined as
+\begin{align}
+    \label{eq:shear_dist}
+    \frac{\partial \beta_i}{\partial \theta_j} &= A_{ij} = \delta_{ij} - \partial_i \partial_j \psi \\
+    A &= \begin{pmatrix}
+        1 - \kappa -m\gamma_1 & -\gamma_2 \\
+        -\gamma_2 & 1 - \kappa + \gamma_1
+    \end{pmatrix}.
+\end{align}
+
+From this definition, we can write $\kappa, \gamma_1$ and $\gamma_2$ as
+\begin{equation}
+    \label{eq:shear_kg1g2}
+    \kappa = \frac{1}{2}(\partial_1\partial_1 + \partial_2\partial_2)\psi = \frac{1}{2}\nabla^2\psi; \quad \gamma_1 = \frac{1}{2}(\partial_1\partial_1 - \partial_2\partial_2)\psi; \quad \gamma_2=\partial_1\partial_2\psi.
+\end{equation}
+
+For notational purposes, define a complex shear value $\gamma = \gamma_1 + i \gamma_2$. Define a vector field $\bm{u}$ which the convergence is the potential, with
+\begin{align}
+    \label{eq:shear_u}
+    \nonumber \bm{u} &= \nabla \kappa \\
+    &= \begin{pmatrix}
+        \partial_1 \kappa \\
+        \partial_2 \kappa
+    \end{pmatrix}
+    = \begin{pmatrix}
+        \frac{1}{2}(\partial_1\partial_1\partial_1 + \partial_1\partial_2\partial_2)\psi\\
+        \frac{1}{2}(\partial_1\partial_1\partial_2 + \partial_2\partial_2\partial_2)\psi
+    \end{pmatrix}
+    = \begin{pmatrix}
+        \partial_1\gamma_1 + \partial_2\gamma_2 \\
+        -\partial_2\gamma_1 + \partial_1\gamma_2
+    \end{pmatrix}.
+\end{align}
+By definition, the curl of this gradient vanishes, $\nabla \times \bm{u} = \partial_1 u_2 - \partial_2 u_1 = 0$. A shear field fulfilling those relations is called an $E$-mode field.
+
+Writing the relations between $\kappa, \gamma$, and the lensing potential $\psi$ in Fourier space gives
+\begin{align}
+    \nonumber \Tilde{\gamma} &= \Tilde{\gamma_1} + i\Tilde{\gamma_2}\\
+    &= \frac{1}{2}(-\ell_1^2 + \ell_2^2)\psi - i\ell_1\ell_2\psi
+\end{align}
+and
+\begin{align}
+    \Tilde{\kappa} = -\frac{1}{2}(\ell_1^2+\ell_2^2)\psi.
+\end{align}
+Solve for $\psi$ using the second equation and substitute it shear equation as
+\begin{equation}
+    \label{eq:shear_gammakappa}
+    \Tilde{\gamma} = \frac{(\ell_1+i\ell_2)}{\ell^2}\Tilde{\kappa} = e^{2i\beta}\Tilde{\kappa},
+\end{equation}
+thus the power spectrum of the shear equals the one of the convergence, $P_\gamma = P_\kappa$. This calculation was done in a flat-sky approximation and this works fine for small scales.
+
+The Fourier transformation is only defined on a flat space. To perform Fourier transforms on fields defined on the spherical sky is fine on small scales, but breaks down on very large angles. The Fourier transform should be replaced by a spherical harmonic transformation. The definitions in equation \ref{eq:shear_kg1g2} are defined in flat space and should be replaced on the sphere.
+
+\subsubsection{Lensing potential on the Sphere}
+
+The lensing potential $\psi$ from a population of source galaxies with redshift distribution $p_i(z)$ is given as
+\begin{equation}
+    \label{eq:shear_pot_sphere}
+    \psi(\theta) = \frac{2}{c^2}\int_0^\infty\frac{d\chi}{\chi}\Phi[\chi, \chi\bm{\theta} q(\chi)],
+\end{equation}
+where the lensing efficiency $q_i$ is given as
+\begin{equation}
+    \label{eq:shear_lensingeff}
+    q(\chi) = \int_\chi^{\chi_H} d\chi' p(\chi') \frac{\chi'-\chi}{\chi'}.
+\end{equation}
+
+Let's now derive the angular harmonic spectrum of $\psi$ (spherical analog of power spectrum). Decompose potential into spherical harmonics,
+\begin{equation}
+    \label{eq:shear_decomp_pot}
+    \psi(\bm{\theta}) = \sum_{\ell=0}^\infty \sum_{m=-\ell}^\ell \psi_{\ell m} Y_{\ell m}(\bm{\theta}); \quad \psi_{\ell m} = \int d\Omega Y^*_{\ell m}(\bm{\theta}) \psi(\bm{\theta}).
+\end{equation}
+
+The harmonics expansion coefficient is, after insertion of the expression for $\psi$ and Fourier transforming the 3D potential,
+
+\begin{equation}
+    \label{eq:shear_pot_coeff}
+    \psi_{\ell m} = \frac{2}{c^2}\int d\Omega Y^*_{\ell m}(\theta, \phi)\int_0^\infty \frac{d\chi}{\chi}q(\chi)\int\frac{d^3k}{(2\pi)^3}\hat{\Phi}(\bm{k};\chi)e^{-i\bm{k}\cdot\bm{r}},
+\end{equation}
+and insert the spherical harmonics expansion of the plane wave basis function and orthogonality relation of the spherical harmonics
+
+\begin{equation}
+    \label{eq:shear_SHE&ortho}
+    e^{i\bm{k}\cdot\bm{r}} = 4\pi\sum_{\ell=0}^\infty\sum_{m=-\ell}^\ell  j_\ell(k\chi) Y_{\ell m}(\theta, \phi) Y^*_{\ell m}(\theta_k, \phi_k); ~ \int d\Omega Y_{\ell m}(\theta, \phi) Y^*_{\ell' m'}(\theta, \phi) = \delta_{\ell \ell'}\delta_{mm'}
+\end{equation}
+to get
+
+\begin{align}
+    \nonumber \psi_{\ell m} &= \frac{2}{c^2}\int d\Omega Y^*_{\ell m}(\theta, \phi)\int_0^\infty \frac{d\chi}{\chi}q(\chi)\int\frac{d^3k}{(2\pi)^3}\hat{\Phi}(\bm{k};\chi)e^{-i\bm{k}\cdot\bm{r}} \\
+    &= \nonumber \sum_{\ell,m}\frac{i^{\ell'}}{c^2\pi^2}\int d\Omega Y^*_{\ell m}(\theta, \phi)\int_0^\infty \frac{d\chi}{\chi}q(\chi)\int\frac{d^3k}{(2\pi)^3}\hat{\Phi}(\bm{k};\chi) j_{\ell'}(k\chi) Y_{\ell' m'}(\theta, \phi) Y^*_{\ell' m'}(\theta_k, \phi_k)\\
+    &= \frac{i^\ell}{c^2 \pi^2} \int_0^\infty \frac{d\chi}{\chi}q(\chi)\int d^3k\hat{\Phi}(\bm{k};\chi) j_{\ell}(k\chi) Y^*_{\ell m}(\theta_k, \phi_k).
+\end{align}
+
+Then, the angular harmonics (cross-)spectrum (between redshift bins $i$ and $j$) of the lensing potential is defined as
+\begin{align}
+    \nonumber \langle\psi_{\ell m, i}\psi^*_{\ell' m', j}\rangle &= \frac{1}{c^4 \pi^4} \int_0^\infty \frac{d\chi}{\chi}q(\chi) \int_0^\infty \frac{d\chi'}{\chi'}q(\chi') \\
+    &\nonumber \times \int d^3k \int d^3k'\langle\hat{\Phi}(\bm{k};\chi)\hat{\Phi}^*(\bm{k'};\chi'
+    )\rangle j_{\ell}(k\chi)j_{\ell'}(k'\chi') Y^*_{\ell m}(\theta_k, \phi_k)Y_{\ell' m'}(\theta_{k'}, \phi_{k'})\\
+    \nonumber &= \frac{8}{c^4 \pi} \int_0^\infty \frac{d\chi}{\chi}q(\chi) \int_0^\infty \frac{d\chi'}{\chi'}q(\chi') \\
+    &\nonumber \times \int d^3k \int d^3k' \delta^D(\bm{k}-\bm{k'}) P_\Phi(k;\chi,\chi')j_{\ell}(k\chi)j_{\ell'}(k'\chi') Y^*_{\ell m}(\theta_k, \phi_k)Y_{\ell' m'}(\theta_{k'}, \phi_{k'})\\
+    \nonumber &= \frac{8}{c^4 \pi} \int_0^\infty \frac{d\chi}{\chi}q(\chi) \int_0^\infty \frac{d\chi'}{\chi'}q(\chi') \\
+    &\nonumber \times \int dk k^2 j_{\ell}(k\chi)j_{\ell'}(k\chi') \int d\Omega Y^*_{\ell m}(\theta_k, \phi_k)Y_{\ell' m'}(\theta_{k}, \phi_{k}) \\
+    &= \frac{8}{c^4 \pi} \int_0^\infty \frac{d\chi}{\chi}q(\chi) \int_0^\infty \frac{d\chi'}{\chi'}q(\chi') \int dk k^2 j_\ell(k\chi)j_\ell(k\chi') P_\Phi(k;\chi,\chi')
+\end{align}
+
+\subsection{Shear on the Sphere}
+Define complex derivative operator
+\begin{align}
+    \nonumber \partial &= \partial_1 + i\partial_2\\
+    &= \partial_1\partial_1 - \partial_2\partial_2 + 2i\partial_1\partial_2.
+\end{align}
+From equation \ref{eq:shear_kg1g2}, we can rewrite the shear in complex form
+\begin{equation}
+    \label{eq:shear_edth}
+    \gamma(\bm{\theta}) = \frac{1}{2}\eth \eth \psi(\bm{\theta}); \quad \gamma^*(\bm{\theta})=\frac{1}{2}\eth^*\eth^*\psi(\bm{\theta}).
+\end{equation}
+The corresponding derivative on the sphere is called edth derivative. Inserting the spherical harmonics expansion of $\psi$ results in edth derivatives of $Y_{\ell m}$. This defines a new object, the spin-weighted spherical harmonics ${}_2 Y_{\ell m}$. Each edth derivative $\eth (\eth^*)$ raises (lowers) spin by one. Therefore,
+
+\begin{equation}
+    \label{eq:shear_swSH}
+    (\gamma_1 \pm i\gamma_2)(\bm{\theta}) = \sum_{\ell m} {}_{\pm2}\gamma_{\ell m} {}_{\pm2}Y_{\ell m}(\bm{\theta}); \quad _{\pm2}\gamma_{\ell m} = \int d\Omega \gamma^{/*}(\bm{\theta}) {}_{\pm2}Y^*_{\ell m}(\bm{\theta}).
+\end{equation}
+
+These objects are eigen functions of $\eth$:
+\begin{equation}
+    \label{eq:shear_eigen}
+    \l(\ell, s){}_{s}Y_{\ell m}(\bm{\theta}) = \eth^2 Y_{\ell m}(\bm{\theta}); \quad \l(\ell, s){}_{-s}Y_{\ell m}(\bm{\theta}) = (\eth^*)^2 Y_{\ell m}(\bm{\theta}); \quad \l(\ell, 2) = \sqrt{\frac{(\ell+2)!}{(\ell-2)!}}.
+\end{equation}
+
+Using equations \ref{eq:shear_pot_coeff}, \ref{eq:shear_edth}, and \ref{eq:shear_swSH} gives:
+\begin{align}
+    \label{eq:shear_shearpot}
+    \nonumber \gamma(\theta, \phi) &= \frac{1}{2}\eth^2\psi(\theta, \phi) \\
+    \nonumber &= \frac{1}{2}\eth^2 \sum_{\ell m}\psi_{\ell m} Y_{\ell m}(\theta, \phi)\\
+    \nonumber &= \frac{1}{2}\sum_{\ell m}\psi_{\ell m} \eth^2  Y_{\ell m}(\theta, \phi) \\ 
+    \nonumber &= \frac{1}{2}\sum_{\ell m}\l(\ell, 2) \psi_{\ell m}  {}_{2} Y_{\ell m}(\theta, \phi) = \sum_{\ell m} {}_2\gamma_{\ell m} {}_2 Y_{\ell m}(\theta, \phi) \\
+    {}_2\gamma_{\ell m} &= \frac{1}{2} \l(\ell, 2)\psi_{\ell m}.
+\end{align}
+
+The tomographic shear power spectrum is defined by
+
+\begin{align}
+    \label{eq:shear_shearps}
+    \langle{}_2\gamma_{\ell m}~{}_2\gamma^*_{\ell' m'}\rangle &= \delta_{\ell \ell'}\delta_{m m'} C^\gamma_{ij}(\ell)=\frac{1}{4}\l^2(\ell, 2)\langle\psi_{\ell m}\psi_{\ell' m'}\rangle = \delta_{\ell \ell'}\delta_{m m'} C^\psi_{ij}(\ell)
+\end{align}
+
+
+The most basic, non-trivial cosmic shear observable is the real-space shear two-point correlation function. The two shear components of each galaxy are conveniently decomposed into tangential components and cross-component. With respect to a given direction vector $\bm{\theta}$, they are defined as
+\begin{equation}
+    \label{eq:shear_tancross}
+    \gamma_t = -\Re(\gamma e^{-2i\phi}); \quad \gamma_\times = -\Im(\gamma e^{-2i\phi}).
+\end{equation}
