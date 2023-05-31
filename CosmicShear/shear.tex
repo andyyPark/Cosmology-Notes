@@ -142,12 +142,168 @@ The tomographic shear power spectrum is defined by
 
 \begin{align}
     \label{eq:shear_shearps}
-    \langle{}_2\gamma_{\ell m}~{}_2\gamma^*_{\ell' m'}\rangle &= \delta_{\ell \ell'}\delta_{m m'} C^\gamma_{ij}(\ell)=\frac{1}{4}\l^2(\ell, 2)\langle\psi_{\ell m}\psi_{\ell' m'}\rangle = \delta_{\ell \ell'}\delta_{m m'} C^\psi_{ij}(\ell)
+    \langle{}_2\gamma_{\ell m}~{}_2\gamma^*_{\ell' m'}\rangle &= \delta_{\ell \ell'}\delta_{m m'} C^\gamma_{ij}(\ell)=\frac{1}{4}\l^2(\ell, 2)\langle\psi_{\ell m}\psi_{\ell' m'}\rangle = \delta_{\ell \ell'}\delta_{m m'} C^\psi_{ij}(\ell).
 \end{align}
 
+Decompose equation \ref{eq:shear_shearpot} by ${}_{\pm2} \gamma_{\ell m} = \epsilon_{\ell m} \pm i \beta_{\ell m}$. Then,
+\begin{align}
+    \langle{}_2 \gamma_{\ell m}~ {}_2 \gamma^*_{\ell' m'}\rangle &= \delta_{\ell \ell'} \delta_{m m'} (C^{EE}_\ell + C^{BB}_\ell) \\
+    \langle{}_2 \gamma_{\ell m}~ {}_{-2} \gamma^*_{\ell' m'}\rangle &= \delta_{\ell \ell'} \delta_{m m'} (C^{EE}_\ell - C^{BB}_\ell),
+\end{align}
+where $EE$ and $BB$ are the $E/B$-modes. To compute $\xi^\pm$, consider two points that are at the same azimuthal angle, separated by an angle in the polar direction.
 
-The most basic, non-trivial cosmic shear observable is the real-space shear two-point correlation function. The two shear components of each galaxy are conveniently decomposed into tangential components and cross-component. With respect to a given direction vector $\bm{\theta}$, they are defined as
+\begin{align}
+    \nonumber \xi^+(\beta) &= \sum_{\ell m \ell'm'}\langle{}_2 \gamma_{\ell m} ~ {}_2 \gamma^*_{\ell' m'}\rangle {}_2 Y_{\ell m}(\hat{n}) {}_2 Y^*_{\ell' m'}(\hat{n}') \\
+    &=  \nonumber \sum_{\ell m \ell'm'} \delta_{\ell \ell'} \delta_{m m'} (C^{EE}_\ell + C^{BB}_\ell) {}_2 Y_{\ell m}(\hat{n}) {}_2 Y^*_{\ell' m'}(\hat{n}') \\
+    &= \nonumber \sum_{\ell m} (C^{EE}_\ell + C^{BB}_\ell) {}_2 Y_{\ell m}(\hat{n}) {}_2 Y^*_{\ell m}(\hat{n}')\\
+    &= \nonumber \sum_\ell \sqrt{\frac{2\ell+1}{4\pi}} (C^{EE}_\ell + C^{BB}_\ell) {}_{2} Y_{\ell -2}(\beta, 0) \\
+    &= \nonumber \sum_\ell \frac{2\ell+1}{4\pi} (C^{EE}_\ell + C^{BB}_\ell) {}_2 D_{\ell 2}(0, \beta, 0)\\
+    &= \sum_\ell \frac{2\ell+1}{4\pi} (C^{EE}_\ell + C^{BB}_\ell) {}_2 d_{\ell 2}(\beta),
+\end{align}
+and similarly
 \begin{equation}
-    \label{eq:shear_tancross}
-    \gamma_t = -\Re(\gamma e^{-2i\phi}); \quad \gamma_\times = -\Im(\gamma e^{-2i\phi}).
+    \xi^-(\beta)=\sum_\ell \frac{2\ell+1}{4\pi} (C^{EE}_\ell - C^{BB}_\ell) {}_2 d_{\ell -2}(\beta),
 \end{equation}
+where I used
+\begin{align}
+    {}_{s} D_{\ell -m}(\alpha, \beta, \gamma) = \sqrt{\frac{4\pi}{2\ell+1}} {}_s Y_{\ell m}(\beta, \alpha) e^{-i s \gamma}\\
+    \sum_m {}_{s_1} Y_{\ell m}(\theta, \phi){}_{s_2} Y^*_{\ell m}(\theta', \phi') = \sqrt{\frac{2\ell+1}{4\pi}}(-1)^{s_1-s_2} {}_{-s_1} Y_{\ell s_2} (\beta, \alpha) e^{-is_1\gamma}.
+\end{align}
+
+To go from $\xi^\pm$ to $C^{EE/BB}_\ell$, use
+
+\begin{align}
+    \nonumber\int_{-1}^1 d\cos\beta\:\xi^+(\beta) {}_2 d^*_{\ell' 2}(\beta) &= \sum_\ell \frac{2\ell+1}{4\pi} (C^{EE}_\ell + C^{BB}_\ell) \int_{-1}^1 d\cos\beta\: {}_2 d_{\ell 2}(\beta) {}_2 d^*_{\ell'2}(\beta)\\
+    &\nonumber= \sum_\ell \frac{2\ell+1}{4\pi} (C^{EE}_\ell + C^{BB}_\ell) \frac{2}{2\ell+1}\delta_{\ell\ell'} \\
+    &= \frac{1}{2\pi}(C^{EE}_{\ell'} + C^{BB}_{\ell'}),
+\end{align}
+thus
+\begin{align}
+    C^{EE}_\ell &= \frac{1}{2}\int d\theta\:2\pi\sin\theta[{}_2 d^*_{\ell 2}(\theta) \xi^+(\theta) + {}_{-2} d^*_{\ell 2}(\theta) \xi^-(\theta)]\\
+    C^{BB}_\ell &= \frac{1}{2}\int d\theta\:2\pi\sin\theta[{}_2 d^*_{\ell 2}(\theta) \xi^+(\theta) - {}_{-2} d^*_{\ell 2}(\theta) \xi^-(\theta)]
+\end{align}
+
+\subsection{Scale cuts}
+
+\begin{align}
+    \nonumber D^{EE}_\ell &= \frac{1}{2}\int d\theta\:2\pi\sin\theta[{}_2 d^*_{\ell 2}(\theta) \xi^+(\theta)\xi_W(\theta) + {}_{-2} d^*_{\ell 2}(\theta) \xi^-(\theta)\xi_W(\theta)] \\
+    &= \nonumber\frac{1}{2}\sqrt{\frac{4\pi}{2\ell+1}}\int d\Omega \left[{}_{2}Y^*_{\ell -2}(\theta, 0) \xi^+(\theta) \xi_W(\theta) + {}_{2}Y^*_{\ell 2}(\theta, 0) \xi^-(\theta) \xi_W(\theta)\right] \\
+    &=\nonumber\frac{1}{2}\sqrt{\frac{4\pi}{2\ell+1}}\int d\Omega \sum_{\ell' \ell''}\left\{\sqrt{\frac{2\ell'+1}{4\pi}}\sqrt{\frac{2\ell''+1}{4\pi}}(C^{EE}_{\ell'} + C^{BB}_{\ell'})W_{\ell''}{}_{-2} Y_{\ell 2}(\theta) {}_{2} Y_{\ell' -2}(\theta) {}_{0} Y_{\ell'' 0}(\theta)\right.\\
+    &\nonumber\left.\quad\quad  + \:\sqrt{\frac{2\ell'+1}{4\pi}}\sqrt{\frac{2\ell''+1}{4\pi}}(C^{EE}_{\ell'} - C^{BB}_{\ell'})W_{\ell''}{}_{-2} Y_{\ell -2}(\theta) {}_{2} Y_{\ell' 2}(\theta) {}_{0} Y_{\ell'' 0}(\theta)\right\}\\
+    &=\nonumber\frac{1}{2}\sqrt{\frac{4\pi}{2\ell+1}}\sum_{\ell' \ell''}\sqrt{\frac{2\ell'+1}{4\pi}}\sqrt{\frac{2\ell''+1}{4\pi}}W_{\ell'}\\
+    &\quad\quad\times\nonumber\left\{C^{EE}_{\ell'}\int d\Omega~\left[{}_{-2} Y_{\ell 2}(\theta) {}_{2} Y_{\ell' -2}(\theta) {}_{0} Y_{\ell'' 0}(\theta) + {}_{-2} Y_{\ell -2}(\theta) {}_{2} Y_{\ell' 2}(\theta) {}_{0} Y_{\ell'' 0}(\theta)\right]\right.\\
+    &\nonumber\quad\quad\left.+\quad C^{BB}_{\ell'}\int d\Omega~\left[{}_{-2} Y_{\ell 2}(\theta) {}_{2} Y_{\ell'- 2}(\theta) {}_{0} Y_{\ell'' 0}(\theta) - {}_{-2} Y_{\ell -2}(\theta) {}_{2} Y_{\ell' 2}(\theta) {}_{0} Y_{\ell'' 0}(\theta)\right]\right\}\\
+    &=\nonumber\frac{1}{2}\sqrt{\frac{4\pi}{2\ell+1}}\sum_{\ell' \ell''}\sqrt{\frac{2\ell'+1}{4\pi}}\sqrt{\frac{2\ell''+1}{4\pi}}W_{\ell'}\\
+    &\nonumber\quad\quad\times\left\{C^{EE}_{\ell'}\sqrt{\frac{(2\ell+1)(2\ell'+1)(2\ell''+1)}{4\pi}}\left[\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix} + \begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        -2 & 2 & 0
+    \end{pmatrix}\right]\right.\\
+    &\nonumber\quad\quad\left.+\quad C^{BB}_{\ell'}\sqrt{\frac{(2\ell+1)(2\ell'+1)(2\ell''+1)}{4\pi}}\left[\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix} - \begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        -2 & 2 & 0
+    \end{pmatrix}\right]\right\}\\
+    &\nonumber=\frac{1}{2}\sum_{\ell'}\frac{2\ell'+1}{4\pi}C^{EE}_{\ell'}\sum_{\ell''}(2\ell''+1)W_{\ell''}\left[ \begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}^2 + (-1)^{\ell + \ell' + \ell''} \begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix} \right] \\
+    &\nonumber+\frac{1}{2}\sum_{\ell'}\frac{2\ell'+1}{4\pi}C^{BB}_{\ell'}\sum_{\ell''}(2\ell''+1)W_{\ell''}\left[ \begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}^2 - (-1)^{\ell + \ell' + \ell''} \begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix} \right]\\
+    &\nonumber=\sum_{\ell'}\frac{2\ell'+1}{4\pi}C^{EE}_{\ell'}\sum_{\ell''}(2\ell''+1)W_{\ell''}\left(\frac{1+(-1)^{\ell+\ell'+\ell''}}{2}\right)\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}^2\\
+    &\nonumber+\sum_{\ell'}\frac{2\ell'+1}{4\pi}C^{BB}_{\ell'}\sum_{\ell''}(2\ell''+1)W_{\ell''}\left(\frac{1-(-1)^{\ell+\ell'+\ell''}}{2}\right)\begin{pmatrix}
+        \ell & \ell' & \ell'' \\
+        2 & -2 & 0
+    \end{pmatrix}^2\\
+    &= \sum_{\ell'}M^+_{\ell\ell'}C^{EE}_{\ell'} + M^-_{\ell\ell'}C^{BB}_{\ell'}
+\end{align}
+
+\subsection{Shear on masked sky}
+
+ Using equation \ref{eq:shear_swSH}, we can solve for $E_{\ell m}$ and $B_{\ell m}$ as
+
+ \begin{align}
+     E_{\ell m} &= \frac{1}{2}\int d\bm{\theta} \{\gamma_1(\bm{\theta})[{}_2Y^*_{\ell m}(\bm{\theta}) + {}_{-2}Y^*_{\ell m}(\bm{\theta})]\} +  i\{\gamma_2(\bm{\theta})[{}_2Y^*_{\ell m}(\bm{\theta}) - {}_{-2}Y^*_{\ell m}(\bm{\theta})]\} \\
+     B_{\ell m} &= \frac{1}{2}\int d\bm{\theta} \{\gamma_2(\bm{\theta})[{}_2Y^*_{\ell m}(\bm{\theta}) - {}_{-2}Y^*_{\ell m}(\bm{\theta})]\} -  i\{\gamma_1(\bm{\theta})[{}_2Y^*_{\ell m}(\bm{\theta}) + {}_{-2}Y^*_{\ell m}(\bm{\theta})]\}.
+ \end{align}
+ Multiply the shear maps by a weighting function:
+ \begin{align}
+     E_{\ell m} &= \frac{1}{2}\int d\bm{\theta} W(\bm{\theta}) \{\gamma(\bm{\theta})~ {}_2Y^*_{\ell m}(\bm{\theta}) + \gamma(\bm{\theta})^*~{}_{-2}Y^*_{\ell m}(\bm{\theta})\}\\
+     B_{\ell m} &= \frac{1}{2i}\int d\bm{\theta} W(\bm{\theta}) \{\gamma(\bm{\theta})~ {}_2Y^*_{\ell m}(\bm{\theta}) - \gamma(\bm{\theta})^*~{}_{-2}Y^*_{\ell m}(\bm{\theta})\},
+ \end{align}
+ %\begin{align}
+ %    E_{\ell m} &= \frac{1}{2}\int d\bm{\theta} W(\bm{\theta})\{\gamma_1(\bm{\theta})[{}_2Y^*_{\ell m}(\bm{\theta}) + {}_{-2}Y^*_{\ell m}(\bm{\theta})]+  i\gamma_2(\bm{\theta})[{}_2Y^*_{\ell m}(\bm{\theta}) - {}_{-2}Y^*_{\ell m}(\bm{\theta})]\} \\
+ %    B_{\ell m} &= \frac{1}{2}\int d\bm{\theta} W(\bm{\theta}) \{\gamma_2(\bm{\theta})[{}_2Y^*_{\ell m}(\bm{\theta}) - {}_{-2}Y^*_{\ell m}(\bm{\theta})] -  i\gamma_1(\bm{\theta})[{}_2Y^*_{\ell m}(\bm{\theta}) + {}_{-2}Y^*_{\ell m}(\bm{\theta})]\},
+ %\end{align}
+ and write $W(\bm{\theta}) = \sum_{\ell m} W_{\ell m} ~{}_0Y_{\ell m}(\bm{\theta})$ to get
+
+ \begin{align}
+     \nonumber \Tilde{E}_{\ell m} &= \sum_{\ell'm'\ell''m''}W_{\ell'' m''}\left\{E_{\ell' m'}\int d\Omega\: Y_{\ell'' m''}(\bm{\theta})[{}_2 Y_{\ell' m'}(\bm{\theta})\:{}_2 Y^*_{\ell m}(\bm{\theta}) + {}_{-2} Y_{\ell' m'}(\bm{\theta})\:{}_{-2} Y^*_{\ell m}(\bm{\theta})]\right.\\
+     &\nonumber\left.\quad\quad+~ i B_{\ell' m'}\int d\Omega\: Y_{\ell'' m''}(\bm{\theta})[{}_2 Y_{\ell' m'}(\bm{\theta})\:{}_2 Y^*_{\ell m}(\bm{\theta}) - {}_{-2} Y_{\ell' m'}(\bm{\theta})\:{}_{-2} Y^*_{\ell m}(\bm{\theta})]\right\}\\
+     &\nonumber=\sum_{\ell'm'\ell''m''}W_{\ell''m''}\left\{E_{\ell' m'}\sqrt{\frac{(2\ell+1)(2\ell'+1)(2\ell''+1)}{4\pi}}\left[\begin{pmatrix}
+         \ell & \ell' & \ell''\\
+         -2 & 2 & 0
+     \end{pmatrix}\begin{pmatrix}
+         \ell & \ell' & \ell''\\
+         -m & m' & m''
+     \end{pmatrix}\right.\right.\\
+     &\nonumber\left.\left.\quad\quad +\begin{pmatrix}
+         \ell & \ell' & \ell''\\
+         2 & 2 & 0
+     \end{pmatrix}\begin{pmatrix}
+         \ell & \ell' & \ell''\\
+         -m & m' & m''
+     \end{pmatrix}\right] + i B_{\ell' m'} \sqrt{\frac{(2\ell+1)(2\ell'+1)(2\ell''+1)}{4\pi}}\right.\\
+     &\quad\quad\times\left.\left[\begin{pmatrix}
+         \ell & \ell' & \ell''\\
+         -2 & 2 & 0
+     \end{pmatrix}\begin{pmatrix}
+         \ell & \ell' & \ell''\\
+         -m & m' & m''
+     \end{pmatrix} + \begin{pmatrix}
+         \ell & \ell' & \ell''\\
+         2 & 2 & 0
+     \end{pmatrix}\begin{pmatrix}
+         \ell & \ell' & \ell''\\
+         -m & m' & m''
+     \end{pmatrix}\right]\right\}
+ \end{align}
+
+ \begin{align}
+     F^{EE}_\ell &= M^+ D^{EE}_\ell + M^- D^{BB}_\ell \\
+     B_F F^{EE}_\ell &= B_F M^+ B^{-1}_{D^{EE}} B_{D^{EE}} D^{EE}_\ell + B_F M^- B^{-1}_{D^{BB}} B_{D_{BB}} D^{BB}_\ell \\
+     F^{EE}_{\ell_b} &= M^{+, EE}_{b, F} D^{EE}_{\ell_b} + M^{-, BB}_{b, F} D^{BB}_{\ell_b}
+ \end{align}
